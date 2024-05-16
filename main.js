@@ -1,5 +1,6 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
+
 function addTask() {
   if (inputBox.value === "") {
     alert("You don't want to do anything today? Is it a rest day?");
@@ -27,6 +28,12 @@ listContainer.addEventListener(
   },
   false
 );
+
+inputBox.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    addTask();
+  }
+});
 
 function saveData() {
   localStorage.setItem("data", listContainer.innerHTML);
